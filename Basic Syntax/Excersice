@@ -1,0 +1,139 @@
+#include <iostream>
+#include <cmath>
+#include <climits>
+using namespace std;
+
+// exercise 1
+void OrderTwoNums()
+{
+    int num1, num2;
+    cin >> num1 >> num2;
+
+    if (num1 > num2)
+    {
+        cout << num2 << " " << num1;
+    }
+    else
+    {
+        cout << num1 << " " << num2;
+    }
+}
+// exercise 2
+bool isPositive(double d)
+{
+    return d >= 0;
+}
+void ProductSign()
+{
+
+    double d1, d2, d3;
+    cin >> d1 >> d2 >> d3;
+
+    if (d1 == 0 || d2 == 0 || d3 == 0)
+    {
+        cout << '+';
+        exit(0);
+    }
+
+    bool outputSign = isPositive(d1);
+    outputSign = (outputSign == isPositive(d2));
+    outputSign = (outputSign == isPositive(d3));
+    if (outputSign)
+        cout << '+';
+    else
+        cout << '-';
+}
+
+// exercise 3
+void QuadraticEquation()
+{
+    double a, b, c;
+    cin >> a >> b >> c;
+    double discrim = b * b - 4 * a * c;
+    double x1 = (-b + sqrt(discrim)) / (2 * a);
+    double x2 = (-b - sqrt(discrim)) / (2 * a);
+
+    if (discrim > 0)
+    {
+        cout << x1 << ' ' << x2;
+    }
+    else if (discrim < 0)
+    {
+        cout << "no roots";
+    }
+    else
+    {
+        cout << x1;
+    }
+}
+
+// exercise 4
+void oneToN()
+{
+
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        cout << i << " ";
+    }
+}
+
+// exersice 5
+
+void MinAndMax()
+{
+
+    size_t count;
+    cin >> count;
+    int min = INT_MAX;
+    int max = INT_MIN;
+
+    while (count)
+    {
+        int current;
+        cin >> current;
+        ;
+        if (current > max)
+        {
+            max = current;
+        }
+        if (current < min)
+        {
+            min = current;
+        }
+        count--;
+    }
+    cout << min << ' ' << max;
+}
+// exersice 6
+
+void GreatestCommonDivisor()
+{
+    int a, b;
+    cin >> a >> b;
+
+    int ca = a;
+    int cb = b;
+
+    while (ca != 0 && cb != 0)
+    {
+        int div = ca / cb;
+        int remainder = ca % cb;
+        ca = cb;
+        cb = remainder;
+    }
+    int gcd;
+
+    if (ca == 0)
+        gcd = cb;
+    else if (cb == 0)
+        gcd = ca;
+
+    cout << gcd;
+}
+
+int main()
+{
+    MinAndMax();
+}
